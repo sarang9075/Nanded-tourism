@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="t-title">Nanded - The Land of History, Culture & Spirituality</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;        
+            --bg-card: #141414;
+            --bg-card-hover: #1f1f1f;
+            --gold-primary: #D4AF37;   
+            --gold-hover: #F3E5AB;     
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-para: 'Poppins', sans-serif;
+        }
+
+        /* Light Theme Variables */
+        body.light-mode {
+            --bg-dark: #f4f4f4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #eaeaea;
+            --text-light: #111111;
+            --text-muted: #555555;
+            --gold-primary: #b89728;
+            --gold-hover: #96781d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-para);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* PRELOADER */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.2);
+            border-top: 3px solid var(--gold-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        body.light-mode .navbar {
+            background: rgba(244, 244, 244, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1350px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h2 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-light);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--gold-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu ul li a {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-menu ul li a:hover, 
+        .nav-menu ul li a.active {
+            color: var(--gold-primary);
+        }
+
+        /* Controls (Theme & Language) */
+        .controls-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle-btn, .lang-select {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            font-family: var(--font-para);
+            transition: 0.3s;
+        }
+
+        .lang-select option {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .theme-toggle-btn:hover, .lang-select:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.85)), 
+                        url('assets/hero-bg.jpg') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .welcome-text {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: var(--gold-hover);
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Live Weather Widget */
+        .weather-widget {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #ffffff;
+            margin-bottom: 25px;
+        }
+
+        .weather-widget span {
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark);
+            padding: 12px 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 13px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--gold-primary);
+            padding: 10px 23px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 13px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark);
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .section-header h5 {
+            color: var(--gold-primary);
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: var(--font-heading);
+            color: var(--text-light);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Search Filter Input */
+        .search-filter-box {
+            max-width: 400px;
+            margin: 0 auto 30px auto;
+        }
+
+        .search-filter-box input {
+            width: 100%;
+            padding: 10px 15px;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: var(--text-light);
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: var(--font-para);
+        }
+
+        .search-filter-box input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        /* WHY VISIT */
+        .why-visit-section {
+            padding: 90px 20px;
+            background-color: var(--bg-dark);
+        }
+
+        .why-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .why-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            background-color: var(--bg-card-hover);
+        }
+
+        .why-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .why-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .why-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 90px 20px;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h5 {
+            color: var(--gold-primary);
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .about-text h2 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.3;
+            font-family: var(--font-heading);
+            color: var(--text-light);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--gold-primary);
+            padding: 10px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .image-box {
+            width: 100%;
+            height: 380px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* GLANCE */
+        .glance-section {
+            padding: 70px 20px;
+            background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)), url('assets/hero-bg.jpg') center/cover fixed;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .glance-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .glance-item {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 25px 15px;
+            border-radius: 8px;
+        }
+
+        .glance-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+        }
+
+        .glance-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* TIMELINES */
+        .history-section, .political-section {
+            padding: 90px 20px;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .political-section {
+            background-color: var(--bg-card);
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-left: 2px solid var(--gold-primary);
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--gold-primary);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            font-size: 18px;
+            color: var(--gold-primary);
+            margin-bottom: 6px;
+        }
+
+        .timeline-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* PLACES & TALUKAS */
+        .places-section, .talukas-section {
+            padding: 90px 20px;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .talukas-section {
+            background-color: var(--bg-card);
+        }
+
+        .places-grid, .talukas-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 25px;
+        }
+
+        .place-card, .taluka-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .taluka-card {
+            background-color: var(--bg-dark);
+            padding: 25px;
+            border-left: 4px solid var(--gold-primary);
+        }
+
+        .place-card:hover, .taluka-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .place-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .place-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .place-content, .taluka-content {
+            padding: 20px;
+        }
+
+        .taluka-content {
+            padding: 0;
+        }
+
+        .place-content h3, .taluka-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .place-content p, .taluka-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .taluka-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .taluka-card ul li {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .taluka-card ul li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+        }
+
+        /* COLLEGES */
+        .colleges-section {
+            padding: 90px 20px;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .colleges-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 25px;
+        }
+
+        .college-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 25px;
+            border-radius: 8px;
+            transition: 0.3s;
+            border-left: 4px solid var(--gold-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .college-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .college-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .college-card h3 {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .college-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .college-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gold-primary);
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            padding-top: 12px;
+        }
+
+        .college-link:hover {
+            color: var(--gold-hover);
+        }
+
+        /* GALLERY & LIGHTBOX */
+        .gallery-section {
+            padding: 90px 20px;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 230px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        #lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        #lightbox-modal.active {
+            display: flex;
+        }
+
+        #lightbox-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            border: 2px solid var(--gold-primary);
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 35px;
+            color: var(--gold-primary);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* CULTURE & FOOD */
+        .culture-food-section {
+            padding: 90px 20px;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .info-card h3 {
+            font-size: 20px;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* TRAVEL GUIDE & MAP */
+        .travel-guide-section {
+            padding: 90px 20px;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .travel-guide-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .travel-box {
+            background-color: var(--bg-dark);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .travel-box h3 {
+            font-size: 18px;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        .travel-box p, .travel-box li {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .travel-box ul {
+            padding-left: 18px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-top: 15px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* CONTACT FORM */
+        .contact-section {
+            padding: 90px 20px;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .contact-form-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--text-light);
+            border-radius: 4px;
+            font-family: var(--font-para);
+            font-size: 13px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* DEVELOPER */
+        .developer-section {
+            padding: 90px 20px;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .developer-card {
+            max-width: 650px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--bg-dark), var(--bg-card));
+            border: 2px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .developer-photo-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--gold-primary);
+            overflow: hidden;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .developer-photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .developer-badge {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .developer-card h3 {
+            font-size: 26px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-family: var(--font-heading);
+        }
+
+        .developer-details {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .dev-info-item p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .dev-info-item h4 {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 3px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: #050505;
+            padding: 35px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+
+        .footer h2 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .footer h2 span {
+            color: var(--gold-primary);
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .about-container, .travel-guide-grid { grid-template-columns: 1fr; }
+            .main-title { font-size: 38px; }
+            .developer-details { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Fullscreen View">
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home"><h2>NANDED<span>.</span></h2></a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="active" data-key="nav-home">Home</a></li>
+                    <li><a href="#about" data-key="nav-about">About</a></li>
+                    <li><a href="#history" data-key="nav-history">History</a></li>
+                    <li><a href="#talukas" data-key="nav-talukas">Talukas</a></li>
+                    <li><a href="#religious" data-key="nav-religious">Religious</a></li>
+                    <li><a href="#famous" data-key="nav-famous">Famous</a></li>
+                    <li><a href="#colleges" data-key="nav-colleges">Colleges</a></li>
+                    <li><a href="#gallery" data-key="nav-gallery">Gallery</a></li>
+                    <li><a href="#guide" data-key="nav-guide">Guide</a></li>
+                    <li><a href="#contact" data-key="nav-contact">Contact</a></li>
+                    <li><a href="#developer" data-key="nav-dev">Developer</a></li>
+                </ul>
+                <div class="controls-group">
+                    <select id="langSelector" class="lang-select">
+                        <option value="en">EN</option>
+                        <option value="mr">MR</option>
+                        <option value="hi">HI</option>
+                    </select>
+                    <button class="theme-toggle-btn" id="themeToggleBtn">☀️ / 🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h5 class="welcome-text" data-key="hero-welcome">WELCOME TO</h5>
+            <h1 class="main-title">NANDED</h1>
+            <h3 class="tagline" data-key="hero-tagline">The Land of History, Culture & Spirituality</h3>
+            
+            <div class="weather-widget">
+                <span data-key="weather-label">🌤️ Nanded:</span> <span data-key="weather-val">32°C, Sunny & Pleasant</span>
+            </div>
+
+            <p class="subtitle" data-key="hero-sub">
+                Explore all 16 Talukas, spiritual heritage, ancient historical background, top educational institutions, and tourist guide of Nanded.
+            </p>
+            <div class="hero-btns">
+                <a href="#talukas" class="btn-primary" data-key="btn-talukas">Explore 16 Talukas</a>
+                <a href="#developer" class="btn-secondary" data-key="btn-dev">Developer Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY VISIT NANDED -->
+    <section class="why-visit-section">
+        <div class="section-header">
+            <h5 data-key="why-sub">EXPERIENCE THE EXCELLENCE</h5>
+            <h2 data-key="why-title">Why Visit Nanded?</h2>
+            <p data-key="why-desc">Discover what makes Nanded a uniquely captivating destination for travelers, pilgrims, and students.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">🛕</div>
+                <h3 data-key="why1-title">Spiritual Haven</h3>
+                <p data-key="why1-desc">Home to Takht Sachkhand Sri Hazur Sahib, drawing millions of global devotees.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🗺️</div>
+                <h3 data-key="why2-title">16 Diverse Talukas</h3>
+                <p data-key="why2-desc">From Sahastrakund waterfalls to ancient forts and holy shrines across all regions.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🎓</div>
+                <h3 data-key="why3-title">Education Hub</h3>
+                <p data-key="why3-desc">Renowned for premier institutes like SGGSIET and SRTM University in Vishnupuri.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT NANDED -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h5 data-key="about-sub">DISCOVER THE CITY</h5>
+                <h2 data-key="about-title">A Historic District Spanning 16 Talukas</h2>
+                <p data-key="about-desc">
+                    Nanded district comprises 16 dynamic talukas, each boasting unique historical landmarks, rivers, religious shrines, and cultural significance.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">✨ Hazur Sahib</div>
+                    <div class="feature-item">🌊 Godavari Ghats</div>
+                    <div class="feature-item" data-key="feat-heritage">🏛️ 16 Unique Talukas</div>
+                    <div class="feature-item" data-key="feat-colleges">🎓 Top Colleges</div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-box">
+                    <img src="assets/about-nanded.jpg" alt="About Nanded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NANDED AT A GLANCE -->
+    <section class="glance-section">
+        <div class="glance-grid">
+            <div class="glance-item">
+                <div class="glance-number">16</div>
+                <div class="glance-label" data-key="glance1">Total Talukas</div>
+            </div>
+            <div class="glance-item">
+                <div class="glance-number">3000+</div>
+                <div class="glance-label" data-key="glance2">Years of History</div>
+            </div>
+            <div class="glance-item">
+                <div class="glance-number">09+</div>
+                <div class="glance-label" data-key="glance3">Top Institutions</div>
+            </div>
+            <div class="glance-item">
+                <div class="glance-number">50+</div>
+                <div class="glance-label" data-key="glance4">Heritage Sites</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORY TIMELINE -->
+    <section class="history-section" id="history">
+        <div class="section-header">
+            <h5 data-key="hist-sub">CHRONOLOGICAL EVOLUTION</h5>
+            <h2 data-key="hist-title">History Timeline</h2>
+            <p data-key="hist-desc">Tracing the glorious milestones of Nanded across ancient, medieval, and modern eras.</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <h3 data-key="h1-title">Ancient Era & Puranic Roots</h3>
+                <p data-key="h1-desc">Nanded finds mentions in ancient Hindu scriptures and Puranas, ruled by various dynasties including the Nanda Empire, Mauryas, and Satavahanas.</p>
+            </div>
+            <div class="timeline-item">
+                <h3 data-key="h2-title">Medieval Rule & Yadavas</h3>
+                <p data-key="h2-desc">The region flourished under the rule of the Yadavas of Devagiri, followed by Islamic dynasties including the Delhi Sultanate and Bahmani Sultanate.</p>
+            </div>
+            <div class="timeline-item">
+                <h3 data-key="h3-title">Mughal Period & Sri Guru Gobind Singh Ji</h3>
+                <p data-key="h3-desc">In 1708, the 10th Sikh Guru, Guru Gobind Singh Ji, arrived in Nanded and made it his permanent abode, establishing Takht Sachkhand Sri Hazur Sahib.</p>
+            </div>
+            <div class="timeline-item">
+                <h3 data-key="h4-title">Nizam Dominion & Liberation</h3>
+                <p data-key="h4-desc">Nanded remained part of the Princely State of Hyderabad under the Nizams until it was liberated during Operation Polo in 1948 and integrated into India.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL 16 TALUKAS & THEIR TOURIST PLACES SECTION -->
+    <section class="talukas-section" id="talukas">
+        <div class="section-header">
+            <h5 data-key="tal-sub">DISTRICT BREAKDOWN</h5>
+            <h2 data-key="tal-title">All 16 Talukas & Places to Visit</h2>
+            <p data-key="tal-desc">Explore every single taluka of Nanded district and discover its special attractions.</p>
+        </div>
+        <div class="talukas-grid">
+            <!-- 1. Nanded -->
+            <div class="taluka-card">
+                <h3 data-key="t1-name">1. Nanded (District HQ)</h3>
+                <ul>
+                    <li data-key="t1-p1">Takht Sachkhand Sri Hazur Sahib</li>
+                    <li data-key="t1-p2">Nanded Fort & Godavari Ghats</li>
+                    <li data-key="t1-p3">Kaleshwar Temple</li>
+                </ul>
+            </div>
+            <!-- 2. Ardhapur -->
+            <div class="taluka-card">
+                <h3 data-key="t2-name">2. Ardhapur</h3>
+                <ul>
+                    <li data-key="t2-p1">Local Kaleshwar Mandir Area</li>
+                    <li data-key="t2-p2">Scenic Agricultural Landscapes</li>
+                </ul>
+            </div>
+            <!-- 3. Bhokar -->
+            <div class="taluka-card">
+                <h3 data-key="t3-name">3. Bhokar</h3>
+                <ul>
+                    <li data-key="t3-p1">Sahastrakund Waterfall (Penganga River)</li>
+                    <li data-key="t3-p2">Isapur Dam & Scenic Views</li>
+                </ul>
+            </div>
+            <!-- 4. Mudkhed -->
+            <div class="taluka-card">
+                <h3 data-key="t4-name">4. Mudkhed</h3>
+                <ul>
+                    <li data-key="t4-p1">Historical Railway Station & Town</li>
+                    <li data-key="t4-p2">Nizam-era Architecture</li>
+                </ul>
+            </div>
+            <!-- 5. Himayatnagar -->
+            <div class="taluka-card">
+                <h3 data-key="t5-name">5. Himayatnagar</h3>
+                <ul>
+                    <li data-key="t5-p1">Manar Project / Dam</li>
+                    <li data-key="t5-p2">Scenic Natural Surroundings</li>
+                </ul>
+            </div>
+            <!-- 6. Hadgaon -->
+            <div class="taluka-card">
+                <h3 data-key="t6-name">6. Hadgaon</h3>
+                <ul>
+                    <li data-key="t6-p1">Shiv Temple & Hills (Trekking)</li>
+                    <li data-key="t6-p2">Local Water Bodies & Nature</li>
+                </ul>
+            </div>
+            <!-- 7. Kinwat -->
+            <div class="taluka-card">
+                <h3 data-key="t7-name">7. Kinwat</h3>
+                <ul>
+                    <li data-key="t7-p1">Kinwat Forest & Wildlife Sanctuary</li>
+                    <li data-key="t7-p2">Purna River Scenic Views</li>
+                </ul>
+            </div>
+            <!-- 8. Mahur -->
+            <div class="taluka-card">
+                <h3 data-key="t8-name">8. Mahur</h3>
+                <ul>
+                    <li data-key="t8-p1">Renuka Mata Temple (Shakti Peeth)</li>
+                    <li data-key="t8-p2">Mahur Fort & Dattatreya Peak</li>
+                </ul>
+            </div>
+            <!-- 9. Deglur -->
+            <div class="taluka-card">
+                <h3 data-key="t9-name">9. Deglur</h3>
+                <ul>
+                    <li data-key="t9-p1">Tirupati Balaji Temple</li>
+                    <li data-key="t9-p2">Historical Gates & Old Town</li>
+                </ul>
+            </div>
+            <!-- 10. Biloli -->
+            <div class="taluka-card">
+                <h3 data-key="t10-name">10. Biloli</h3>
+                <ul>
+                    <li data-key="t10-p1">Siddheshwar Temple</li>
+                    <li data-key="t10-p2">Godavari River Backwaters</li>
+                </ul>
+            </div>
+            <!-- 11. Naigaon -->
+            <div class="taluka-card">
+                <h3 data-key="t11-name">11. Naigaon (Khairgaon)</h3>
+                <ul>
+                    <li data-key="t11-p1">Swami Ramanand Teerth Memorial</li>
+                    <li data-key="t11-p2">Birthplace Heritage Site</li>
+                </ul>
+            </div>
+            <!-- 12. Umri -->
+            <div class="taluka-card">
+                <h3 data-key="t12-name">12. Umri</h3>
+                <ul>
+                    <li data-key="t12-p1">Umri Lake & Bird Watching</li>
+                    <li data-key="t12-p2">Migratory Birds Spot</li>
+                </ul>
+            </div>
+            <!-- 13. Dharmabad -->
+            <div class="taluka-card">
+                <h3 data-key="t13-name">13. Dharmabad</h3>
+                <ul>
+                    <li data-key="t13-p1">Godavari Ghat & Ancient Temples</li>
+                    <li data-key="t13-p2">Green Agro-tourism Fields</li>
+                </ul>
+            </div>
+            <!-- 14. Loha -->
+            <div class="taluka-card">
+                <h3 data-key="t14-name">14. Loha</h3>
+                <ul>
+                    <li data-key="t14-p1">Loha Fort Ruins & Hills</li>
+                    <li data-key="t14-p2">Rural Heritage Temples</li>
+                </ul>
+            </div>
+            <!-- 15. Kandhar -->
+            <div class="taluka-card">
+                <h3 data-key="t15-name">15. Kandhar</h3>
+                <ul>
+                    <li data-key="t15-p1">Kandhar Fort (Ancient Water Fort)</li>
+                    <li data-key="t15-p2">Bheemkund Water Reservoir</li>
+                </ul>
+            </div>
+            <!-- 16. Mukhed -->
+            <div class="taluka-card">
+                <h3 data-key="t16-name">16. Mukhed</h3>
+                <ul>
+                    <li data-key="t16-p1">Hemadpanthi Style Temples</li>
+                    <li data-key="t16-p2">Ancient Stone Inscriptions</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELIGIOUS IMPORTANCE -->
+    <section class="places-section" id="religious">
+        <div class="section-header">
+            <h5 data-key="rel-sub">SPIRITUAL ROOTS</h5>
+            <h2 data-key="rel-title">Religious Importance</h2>
+            <p data-key="rel-desc">Sacred spaces that instill profound peace, faith, and divinity.</p>
+        </div>
+        <div class="places-grid">
+            <div class="place-card">
+                <div class="place-img">
+                    <img src="assets/hazur.jpg" alt="Hazur Sahib">
+                </div>
+                <div class="place-content">
+                    <h3 data-key="r1-title">Takht Sachkhand Sri Hazur Sahib</h3>
+                    <p data-key="r1-desc">One of the five holy takhts in Sikhism, commemorating the sacred site of Guru Gobind Singh Ji's heavenly departure.</p>
+                </div>
+            </div>
+            <div class="place-card">
+                <div class="place-img">
+                    <img src="assets/kaleshwar-temple.jpg" alt="Kaleshwar Temple">
+                </div>
+                <div class="place-content">
+                    <h3 data-key="r2-title">Kaleshwar Temple</h3>
+                    <p data-key="r2-desc">An ancient historical temple devoted to Lord Shiva, situated peacefully along the holy Godavari River.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAMOUS PLACES -->
+    <section class="places-section" id="famous" style="background-color: var(--bg-card);">
+        <div class="section-header">
+            <h5 data-key="fam-sub">MUST-VISIT LOCATIONS</h5>
+            <h2 data-key="fam-title">Famous Places</h2>
+            <p data-key="fam-desc">Architectural wonders and scenic landmarks worth exploring.</p>
+        </div>
+        <div class="places-grid">
+            <div class="place-card">
+                <div class="place-img">
+                    <img src="assets/m_Nanded Fort_2_l_360_640.webp" alt="Nanded Fort">
+                </div>
+                <div class="place-content">
+                    <h3 data-key="f1-title">Nanded Fort</h3>
+                    <p data-key="f1-desc">Encircled by the Godavari River waters on three sides, offering scenic beauty and historical charm.</p>
+                </div>
+            </div>
+            <div class="place-card">
+                <div class="place-img">
+                    <img src="assets/about-nanded.jpg" alt="Godavari Ghats">
+                </div>
+                <div class="place-content">
+                    <h3 data-key="f2-title">Godavari River Ghats</h3>
+                    <p data-key="f2-desc">Peaceful riverbanks hosting evening aartis and offering a serene atmosphere for visitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOP COLLEGES SECTION WITH SEARCH FILTER -->
+    <section class="colleges-section" id="colleges">
+        <div class="section-header">
+            <h5 data-key="col-sub">ACADEMIC EXCELLENCE</h5>
+            <h2 data-key="col-title">Top Colleges in Nanded</h2>
+            <p data-key="col-desc">Leading institutions offering world-class technical, medical, arts, science, and higher education.</p>
+        </div>
+
+        <div class="search-filter-box">
+            <input type="text" id="collegeSearchInput" placeholder="🔍 Search college name or course..." data-key-placeholder="search-placeholder">
+        </div>
+
+        <div class="colleges-grid" id="collegesGrid">
+            <!-- College 1 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c1-tag">Engineering & Tech</span>
+                    <h3>SGGSIET, Vishnupuri</h3>
+                    <p data-key="c1-desc">Shri Guru Gobind Singhji Institute of Engineering and Technology is Nanded's premier technical institute renowned for excellence and high-end placements.</p>
+                </div>
+                <a href="https://www.sggs.ac.in" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 2 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c2-tag">University Campus</span>
+                    <h3>SRTM University, Vishnupuri</h3>
+                    <p data-key="c2-desc">Swami Ramanand Teerth Marathwada University is the core regional university offering postgraduate education and research programs.</p>
+                </div>
+                <a href="https://www.srtmun.ac.in" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 3 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c3-tag">Medical & Healthcare</span>
+                    <h3>Dr. Shankarrao Chavan Gov. Medical College</h3>
+                    <p data-key="c3-desc">Leading government medical college and hospital providing top-tier MBBS and postgraduate medical training.</p>
+                </div>
+                <a href="https://www.gmcnanded.org" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 4 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c4-tag">Arts, Science & Commerce</span>
+                    <h3>Yeshwant Mahavidyalaya</h3>
+                    <p data-key="c4-desc">One of the oldest and largest multi-faculty degree colleges in the region offering diverse undergraduate and postgraduate streams.</p>
+                </div>
+                <a href="https://www.ymnanded.in" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 5 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c5-tag">Science & Research</span>
+                    <h3>Science College, Nanded</h3>
+                    <p data-key="c5-desc">A highly reputed institution dedicated exclusively to advanced science courses, laboratory facilities, and scientific research.</p>
+                </div>
+                <a href="https://www.sciencecollegenanded.org" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 6 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c6-tag">Engineering & Management</span>
+                    <h3>MGM’s College of Engineering</h3>
+                    <p data-key="c6-desc">Mahatma Gandhi Mission's campus offering quality technical and professional education with modern infrastructure.</p>
+                </div>
+                <a href="https://www.mgmcen.ac.in" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 7 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c7-tag">Technical Diploma</span>
+                    <h3>Government Polytechnic College</h3>
+                    <p data-key="c7-desc">Located in Vazirabad, it is the top government institute for technical diploma courses after 10th standard.</p>
+                </div>
+                <a href="https://www.gpnanded.org.in" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 8 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c8-tag">Arts & Commerce Degree</span>
+                    <h3>People's College, Nanded</h3>
+                    <p data-key="c8-desc">A trusted and historic institution offering robust undergraduate programs in Arts, Commerce, and Management studies.</p>
+                </div>
+                <a href="https://www.peoplescollegenanded.com" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+            <!-- College 9 -->
+            <div class="college-card">
+                <div>
+                    <span class="college-tag" data-key="c9-tag">Ayurvedic Medical</span>
+                    <h3>Government Ayurvedic College</h3>
+                    <p data-key="c9-desc">A prominent government institution providing specialized education and clinical training in Ayurvedic medical sciences.</p>
+                </div>
+                <a href="https://www.ayurvedicnanded.org" target="_blank" class="college-link" data-key="visit-web">🌐 Visit Official Website &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMAGE GALLERY -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header">
+            <h5 data-key="gal-sub">VISUAL TOUR</h5>
+            <h2 data-key="gal-title">Image Gallery</h2>
+            <p data-key="gal-desc">A captured look into the scenic beauty, divinity, and heritage of Nanded. (Click to zoom)</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="assets/hero-bg.jpg" alt="Gallery 1"></div>
+            <div class="gallery-item"><img src="assets/about-nanded.jpg" alt="Gallery 2"></div>
+            <div class="gallery-item"><img src="assets/hazur.jpg" alt="Gallery 3"></div>
+            <div class="gallery-item"><img src="assets/kaleshwar-temple.jpg" alt="Gallery 4"></div>
+            <div class="gallery-item"><img src="assets/maharaj2.jpg" alt="Gallery 4"></div>
+            <div class="gallery-item"><img src="assets/baba.jpg" alt="Gallery 4"></div>
+            <div class="gallery-item"><img src="assets/shiv.jpg" alt="Gallery 4"></div>
+            <div class="gallery-item"><img src="assets/visawa.jpg" alt="Gallery 4"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- CULTURE, FESTIVALS & LOCAL FOOD -->
+    <section class="culture-food-section">
+        <div class="section-header">
+            <h5 data-key="cul-sub">LOCAL LIFESTYLE</h5>
+            <h2 data-key="cul-title">Culture & Festivals & Local Food</h2>
+            <p data-key="cul-desc">Immerse yourself in the vibrant traditions and delectable flavors of Nanded.</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3 data-key="cf1-title">🎭 Culture & Festivals</h3>
+                <p data-key="cf1-desc">Nanded exhibits a beautiful confluence of Maratha and Sikh traditions. Major festivals celebrated with great enthusiasm include Hola Mohalla, Diwali, Ganesh Chaturthi, and Dussehra, reflecting communal harmony and rich heritage.</p>
+            </div>
+            <div class="info-card">
+                <h3 data-key="cf2-title">🍛 Local Food & Cuisine</h3>
+                <p data-key="cf2-desc">The local culinary experience features authentic Maharashtrian delicacies like Puran Poli, Zunka Bhakri, along with traditional langar prasad at Hazur Sahib which offers spiritual fulfillment and unmatched hospitality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAVEL GUIDE & GOOGLE MAP -->
+    <section class="travel-guide-section" id="guide">
+        <div class="section-header">
+            <h5 data-key="tr-sub">PLAN YOUR TRIP</h5>
+            <h2 data-key="tr-title">Travel Guide & Location Map</h2>
+            <p data-key="tr-desc">Essential tips, transit options, and exact geographical location of Nanded.</p>
+        </div>
+        <div class="travel-guide-grid">
+            <div class="travel-box">
+                <h3 data-key="tg-title">🧭 Travel Guide Tips</h3>
+                <ul>
+                    <li data-key="tg1"><strong>Best Time to Visit:</strong> October to March (Pleasant weather).</li>
+                    <li data-key="tg2"><strong>By Air:</strong> Sri Guru Gobind Singh Ji Airport (NDC) connects major hubs.</li>
+                    <li data-key="tg3"><strong>By Rail:</strong> Nanded Railway Station (NED) connects to Mumbai, Hyderabad, and Delhi.</li>
+                    <li data-key="tg4"><strong>Local Transport:</strong> Auto-rickshaws and local buses are easily available.</li>
+                </ul>
+            </div>
+            <div class="travel-box">
+                <h3 data-key="map-title">📍 Google Map Location</h3>
+                <p data-key="map-desc">Locate Nanded, Maharashtra easily on the map:</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120567.37894981775!2d77.2662!3d19.1503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd1d66bc693b485%3A0x192fae51d9553da5!2sNanded%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h5 data-key="con-sub">GET IN TOUCH</h5>
+            <h2 data-key="con-title">Contact Form</h2>
+            <p data-key="con-desc">Have questions or feedback? Send us a message directly.</p>
+        </div>
+        <div class="contact-form-box">
+            <form>
+                <div class="form-group">
+                    <label for="cName" data-key="lbl-name">Your Name</label>
+                    <input type="text" id="cName" placeholder="Enter your full name" data-key-placeholder="ph-name">
+                </div>
+                <div class="form-group">
+                    <label for="cEmail" data-key="lbl-email">Email Address</label>
+                    <input type="email" id="cEmail" placeholder="Enter your email" data-key-placeholder="ph-email">
+                </div>
+                <div class="form-group">
+                    <label for="cMessage" data-key="lbl-msg">Message</label>
+                    <textarea id="cMessage" placeholder="Type your message here..." data-key-placeholder="ph-msg"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer;" data-key="btn-send">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- DEVELOPER SECTION -->
+    <section class="developer-section" id="developer">
+        <div class="section-header">
+            <h5 data-key="dev-sub">CREATOR PROFILE</h5>
+            <h2 data-key="dev-title">Developed By</h2>
+            <p data-key="dev-desc">Project created with dedication for academic evaluation.</p>
+        </div>
+
+        <div class="developer-card">
+            <div class="developer-photo-circle">
+                <img src="assets/developer.jpg" alt="Sarang Sudhakar Gote">
+            </div>
+
+            <span class="developer-badge" data-key="dev-badge">Lead Developer & Designer</span>
+            <h3>Sarang Sudhakar Gote</h3>
+            <p style="color: var(--text-muted); font-size: 14px;" data-key="dev-course-sub">BCA Final Year Student</p>
+
+            <div class="developer-details">
+                <div class="dev-info-item">
+                    <p data-key="d1-label">Degree Course:</p>
+                    <h4 data-key="d1-val">Bachelor of Computer Applications</h4>
+                </div>
+                <div class="dev-info-item">
+                    <p data-key="d2-label">Project Title:</p>
+                    <h4 data-key="d2-val">Nanded Tourism & Education Portal</h4>
+                </div>
+                <div class="dev-info-item">
+                    <p data-key="d3-label">Core Technologies:</p>
+                    <h4>HTML5, CSS3, JavaScript</h4>
+                </div>
+                <div class="dev-info-item">
+                    <p data-key="d4-label">Design Architecture:</p>
+                    <h4 data-key="d4-val">Royal Black & Gold Theme</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <h2>NANDED<span>.</span></h2>
+        <p data-key="footer-text">&copy; 2026 Nanded Portal. Developed by Sarang Sudhakar Gote.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR TRANSLATION, SEARCH, LIGHTBOX & THEME -->
+    <script>
+        // TRANSLATION DATA
+        const translations = {
+            en: {
+                "nav-home": "Home", "nav-about": "About", "nav-history": "History", "nav-talukas": "Talukas",
+                "nav-religious": "Religious", "nav-famous": "Famous", "nav-colleges": "Colleges", "nav-gallery": "Gallery",
+                "nav-guide": "Guide", "nav-contact": "Contact", "nav-dev": "Developer",
+                "hero-welcome": "WELCOME TO", "hero-tagline": "The Land of History, Culture & Spirituality",
+                "weather-label": "🌤️ Nanded:", "weather-val": "32°C, Sunny & Pleasant",
+                "hero-sub": "Explore all 16 Talukas, spiritual heritage, ancient historical background, top educational institutions, and tourist guide of Nanded.",
+                "btn-talukas": "Explore 16 Talukas", "btn-dev": "Developer Profile",
+                "why-sub": "EXPERIENCE THE EXCELLENCE", "why-title": "Why Visit Nanded?",
+                "why-desc": "Discover what makes Nanded a uniquely captivating destination for travelers, pilgrims, and students.",
+                "why1-title": "Spiritual Haven", "why1-desc": "Home to Takht Sachkhand Sri Hazur Sahib, drawing millions of global devotees.",
+                "why2-title": "16 Diverse Talukas", "why2-desc": "From Sahastrakund waterfalls to ancient forts and holy shrines across all regions.",
+                "why3-title": "Education Hub", "why3-desc": "Renowned for premier institutes like SGGSIET and SRTM University in Vishnupuri.",
+                "about-sub": "DISCOVER THE CITY", "about-title": "A Historic District Spanning 16 Talukas",
+                "about-desc": "Nanded district comprises 16 dynamic talukas, each boasting unique historical landmarks, rivers, religious shrines, and cultural significance.",
+                "feat-heritage": "🏛️ 16 Unique Talukas", "feat-colleges": "🎓 Top Colleges",
+                "glance1": "Total Talukas", "glance2": "Years of History", "glance3": "Top Institutions", "glance4": "Heritage Sites",
+                "hist-sub": "CHRONOLOGICAL EVOLUTION", "hist-title": "History Timeline",
+                "hist-desc": "Tracing the glorious milestones of Nanded across ancient, medieval, and modern eras.",
+                "h1-title": "Ancient Era & Puranic Roots", "h1-desc": "Nanded finds mentions in ancient Hindu scriptures and Puranas, ruled by various dynasties including the Nanda Empire, Mauryas, and Satavahanas.",
+                "h2-title": "Medieval Rule & Yadavas", "h2-desc": "The region flourished under the rule of the Yadavas of Devagiri, followed by Islamic dynasties including the Delhi Sultanate and Bahmani Sultanate.",
+                "h3-title": "Mughal Period & Sri Guru Gobind Singh Ji", "h3-desc": "In 1708, the 10th Sikh Guru, Guru Gobind Singh Ji, arrived in Nanded and made it his permanent abode, establishing Takht Sachkhand Sri Hazur Sahib.",
+                "h4-title": "Nizam Dominion & Liberation", "h4-desc": "Nanded remained part of the Princely State of Hyderabad under the Nizams until it was liberated during Operation Polo in 1948 and integrated into India.",
+                "tal-sub": "DISTRICT BREAKDOWN", "tal-title": "All 16 Talukas & Places to Visit",
+                "tal-desc": "Explore every single taluka of Nanded district and discover its special attractions.",
+                "rel-sub": "SPIRITUAL ROOTS", "rel-title": "Religious Importance", "rel-desc": "Sacred spaces that instill profound peace, faith, and divinity.",
+                "r1-title": "Takht Sachkhand Sri Hazur Sahib", "r1-desc": "One of the five holy takhts in Sikhism, commemorating the sacred site of Guru Gobind Singh Ji's heavenly departure.",
+                "r2-title": "Kaleshwar Temple", "r2-desc": "An ancient historical temple devoted to Lord Shiva, situated peacefully along the holy Godavari River.",
+                "fam-sub": "MUST-VISIT LOCATIONS", "fam-title": "Famous Places", "fam-desc": "Architectural wonders and scenic landmarks worth exploring.",
+                "f1-title": "Nanded Fort", "f1-desc": "Encircled by the Godavari River waters on three sides, offering scenic beauty and historical charm.",
+                "f2-title": "Godavari River Ghats", "f2-desc": "Peaceful riverbanks hosting evening aartis and offering a serene atmosphere for visitors.",
+                "col-sub": "ACADEMIC EXCELLENCE", "col-title": "Top Colleges in Nanded",
+                "col-desc": "Leading institutions offering world-class technical, medical, arts, science, and higher education.",
+                "search-placeholder": "🔍 Search college name or course...",
+                "c1-tag": "Engineering & Tech", "c1-desc": "Shri Guru Gobind Singhji Institute of Engineering and Technology is Nanded's premier technical institute renowned for excellence and high-end placements.",
+                "c2-tag": "University Campus", "c2-desc": "Swami Ramanand Teerth Marathwada University is the core regional university offering postgraduate education and research programs.",
+                "c3-tag": "Medical & Healthcare", "c3-desc": "Leading government medical college and hospital providing top-tier MBBS and postgraduate medical training.",
+                "c4-tag": "Arts, Science & Commerce", "c4-desc": "One of the oldest and largest multi-faculty degree colleges in the region offering diverse undergraduate and postgraduate streams.",
+                "c5-tag": "Science & Research", "c5-desc": "A highly reputed institution dedicated exclusively to advanced science courses, laboratory facilities, and scientific research.",
+                "c6-tag": "Engineering & Management", "c6-desc": "Mahatma Gandhi Mission's campus offering quality technical and professional education with modern infrastructure.",
+                "c7-tag": "Technical Diploma", "c7-desc": "Located in Vazirabad, it is the top government institute for technical diploma courses after 10th standard.",
+                "c8-tag": "Arts & Commerce Degree", "c8-desc": "A trusted and historic institution offering robust undergraduate programs in Arts, Commerce, and Management studies.",
+                "c9-tag": "Ayurvedic Medical", "c9-desc": "A prominent government institution providing specialized education and clinical training in Ayurvedic medical sciences.",
+                "visit-web": "🌐 Visit Official Website →",
+                "gal-sub": "VISUAL TOUR", "gal-title": "Image Gallery", "gal-desc": "A captured look into the scenic beauty, divinity, and heritage of Nanded. (Click to zoom)",
+                "cul-sub": "LOCAL LIFESTYLE", "cul-title": "Culture & Festivals & Local Food", "cul-desc": "Immerse yourself in the vibrant traditions and delectable flavors of Nanded.",
+                "cf1-title": "🎭 Culture & Festivals", "cf1-desc": "Nanded exhibits a beautiful confluence of Maratha and Sikh traditions. Major festivals celebrated with great enthusiasm include Hola Mohalla, Diwali, Ganesh Chaturthi, and Dussehra, reflecting communal harmony and rich heritage.",
+                "cf2-title": "🍛 Local Food & Cuisine", "cf2-desc": "The local culinary experience features authentic Maharashtrian delicacies like Puran Poli, Zunka Bhakri, along with traditional langar prasad at Hazur Sahib which offers spiritual fulfillment and unmatched hospitality.",
+                "tr-sub": "PLAN YOUR TRIP", "tr-title": "Travel Guide & Location Map", "tr-desc": "Essential tips, transit options, and exact geographical location of Nanded.",
+                "tg-title": "🧭 Travel Guide Tips",
+                "tg1": "Best Time to Visit: October to March (Pleasant weather).",
+                "tg2": "By Air: Sri Guru Gobind Singh Ji Airport (NDC) connects major hubs.",
+                "tg3": "By Rail: Nanded Railway Station (NED) connects to Mumbai, Hyderabad, and Delhi.",
+                "tg4": "Local Transport: Auto-rickshaws and local buses are easily available.",
+                "map-title": "📍 Google Map Location", "map-desc": "Locate Nanded, Maharashtra easily on the map:",
+                "con-sub": "GET IN TOUCH", "con-title": "Contact Form", "con-desc": "Have questions or feedback? Send us a message directly.",
+                "lbl-name": "Your Name", "ph-name": "Enter your full name",
+                "lbl-email": "Email Address", "ph-email": "Enter your email",
+                "lbl-msg": "Message", "ph-msg": "Type your message here...",
+                "btn-send": "Send Message",
+                "dev-sub": "CREATOR PROFILE", "dev-title": "Developed By", "dev-desc": "Project created with dedication for academic evaluation.",
+                "dev-badge": "Lead Developer & Designer", "dev-course-sub": "BCA Final Year Student",
+                "d1-label": "Degree Course:", "d1-val": "Bachelor of Computer Applications",
+                "d2-label": "Project Title:", "d2-val": "Nanded Tourism & Education Portal",
+                "d3-label": "Core Technologies:", "d4-label": "Design Architecture:", "d4-val": "Royal Black & Gold Theme",
+                "footer-text": "© 2026 Nanded Portal. Developed by Sarang Sudhakar Gote."
+            },
+            mr: {
+                "nav-home": "मुख्यपृष्ठ", "nav-about": "माहिती", "nav-history": "इतिहास", "nav-talukas": "तालुक्ये",
+                "nav-religious": "धार्मिक", "nav-famous": "प्रसिद्ध", "nav-colleges": "महाविद्यालये", "nav-gallery": "गॅलरी",
+                "nav-guide": "मार्गदर्शक", "nav-contact": "संपर्क", "nav-dev": "विकसक",
+                "hero-welcome": "स्वागत आहे", "hero-tagline": "इतिहास, संस्कृती आणि अध्यात्माची भूमी",
+                "weather-label": "🌤️ नांदेड:", "weather-val": "३२°C, सनी आणि आल्हाददायक",
+                "hero-sub": "सर्व १६ तालुके, अध्यात्मिक वारसा, प्राचीन इतिहास, उच्च शिक्षण संस्था आणि पर्यटन मार्गदर्शक तपासा.",
+                "btn-talukas": "१६ तालुके पहा", "btn-dev": "विकसक प्रोफाइल",
+                "why-sub": "उत्कृष्टतेचा अनुभव घ्या", "why-title": "नांदेडला भेट का द्यावी?",
+                "why-desc": "प्रवासी, वारकरी आणि विद्यार्थ्यांसाठी नांदेड एक अद्वितीय आकर्षक ठिकाण का आहे ते शोधा.",
+                "why1-title": "अध्यात्मिक आश्रयस्थान", "why1-desc": "तख्त सचखंड श्री हुजूर साहिबचे निवासस्थान, जे जगभरातील कोटी-कोटी भाविकांना आकर्षित करते.",
+                "why2-title": "१६ विविध तालुके", "why2-desc": "सहस्रकुंड धबधब्यापासून ते प्राचीन किल्ले आणि पवित्र मंदिरांपर्यंत सर्व प्रदेश.",
+                "why3-title": "शिक्षण केंद्र", "why3-desc": "विष्णुपूरी येथील SGGSIET आणि SRTM विद्यापीठासारख्या प्रमुख संस्थांसाठी प्रसिद्ध.",
+                "about-sub": "शहराचा शोध घ्या", "about-title": "१६ तालुक्यांचा विस्तार असलेला ऐतिहासिक जिल्हा",
+                "about-desc": "नांदेड जिल्ह्यात १६ गतिशील तालुके आहेत, प्रत्येकाची स्वतःची ऐतिहासिक ठिकाणे आणि वारसा आहे.",
+                "feat-heritage": "🏛️ १६ अद्वितीय तालुके", "feat-colleges": "🎓 शीर्ष महाविद्यालये",
+                "glance1": "एकूण तालुके", "glance2": "वर्षांचा इतिहास", "glance3": "प्रमुख संस्था", "glance4": "वारसा स्थळे",
+                "hist-sub": "कालानुक्रमे विकास", "hist-title": "इतिहास कालरेषा",
+                "hist-desc": "प्राचीन, मध्ययुगीन आणि आधुनिक युगात नांदेडच्या गौरवशाली टप्प्यांचा मागोवा घेणे.",
+                "h1-title": "प्राचीन काळ आणि पौराणिक मूळ", "h1-desc": "नांदेडचा उल्लेख प्राचीन हिंदू ग्रंथांमध्ये आढळतो, जिथे नंद साम्राज्य, मौर्य आणि सातवाहन राजघराण्यांचे राज्य होते.",
+                "h2-title": "मध्ययुगीन राजवट आणि यादवांचे राज्य", "h2-desc": "देवगिरीच्या यादवांच्या काळात हा प्रदेश फुलला, त्यानंतर दिल्ली सल्तनत आणि बहमनी सल्तनतचा काळ आला.",
+                "h3-title": "मुघल काळ आणि श्री गुरु गोबिंद सिंह जी", "h3-desc": "१७०८ मध्ये, १० वे शीख गुरु गुरु गोबिंद सिंह जी नांदेडमध्ये आले आणि त्यांनी येथे तख्त सचखंड श्री हुजूर साहिबची स्थापना केली.",
+                "h4-title": "निजामशाही आणि मुक्ती संग्राम", "h4-desc": "१९४८ मध्ये ऑपरेशन पोलोहून मुक्ती मिळेपर्यंत नांदेड निजामांच्या हैदराबाद राज्याचा भाग राहिले.",
+                "tal-sub": "जिल्हा तपशील", "tal-title": "सर्व १६ तालुके आणि भेट देण्याची ठिकाणे",
+                "tal-desc": "नांदेड जिल्ह्याचा प्रत्येक तालुका आणि त्यांची खास आकर्षणे शोधा.",
+                "rel-sub": "अध्यात्मिक मुळे", "rel-title": "धार्मिक महत्त्व", "rel-desc": "अगाध शांतता, श्रद्धा आणि देवत्व देणारी पवित्र स्थळे.",
+                "r1-title": "तख्त सचखंड श्री हुजूर साहिब", "r1-desc": "सिख धर्मातील पाच पवित्र तख्तांपैकी एक, गुरु गोबिंद सिंह जी यांच्या पावन स्मृतींना समर्पित.",
+                "r2-title": "कालेश्वर मंदिर", "r2-desc": "पवित्र गोदावरी नदीच्या काठावर वसलेले भगवान शिवाला समर्पित प्राचीन ऐतिहासिक मंदिर.",
+                "fam-sub": "अवश्य भेट द्यायची ठिकाणे", "fam-title": "प्रसिद्ध ठिकाणे", "fam-desc": "शोधण्यासारखे वास्तुकला आणि निसर्गरम्य लँडमार्क.",
+                "f1-title": "नांदेड किल्ला", "f1-desc": "गोदावरी नदीच्या पाण्याने तिन्ही बाजूंनी वेढलेला किल्ला, जो ऐतिहासिक सौंदर्य देतो.",
+                "f2-title": "गोदावरी नदी घाट", "f2-desc": "संध्याकाळची आरती आणि प्रवाशांसाठी शांत वातावरण देणारे नदीचे किनारे.",
+                "col-sub": "शैक्षणिक उत्कृष्टता", "col-title": "नांदेडमधील शीर्ष महाविद्यालये",
+                "col-desc": "जागतिक दर्जाचे तांत्रिक, वैद्यकीय, कला, विज्ञान आणि उच्च शिक्षण देणाऱ्या प्रमुख संस्था.",
+                "search-placeholder": "🔍 कॉलेजचे नाव किंवा कोर्स शोधा...",
+                "c1-tag": "अभियांत्रिकी आणि तंत्रज्ञान", "c1-desc": "श्री गुरु गोबिंद सिंगजी इन्स्टिट्यूट ऑफ इंजिनिअरिंग अँड टेक्नॉलॉजी ही नांदेडची सर्वोच्च तांत्रिक संस्था आहे.",
+                "c2-tag": "विद्यापीठ परिसर", "c2-desc": "स्वामी रामानंद तीर्थ मराठवाडा विद्यापीठ हे पदव्युत्तर शिक्षण देणारे प्रादेशिक विद्यापीठ आहे.",
+                "c3-tag": "वैद्यकीय आणि आरोग्य सेवा", "c3-desc": "एमबीबीएस आणि वैद्यकीय प्रशिक्षण देणारे आघाडीचे शासकीय वैद्यकीय महाविद्यालय.",
+                "c4-tag": "कला, विज्ञान आणि वाणिज्य", "c4-desc": "विविध पदवी अभ्यासक्रम देणारे क्षेत्रातील सर्वात जुने आणि मोठे महाविद्यालय.",
+                "c5-tag": "विज्ञान आणि संशोधन", "c5-desc": "प्रगत विज्ञान अभ्यासक्रम आणि वैज्ञानिक संशोधनासाठी समर्पित प्रतिष्ठित संस्था.",
+                "c6-tag": "अभियांत्रिकी आणि व्यवस्थापन", "c6-desc": "आधुनिक पायाभूत सुविधांसह तांत्रिक आणि व्यावसायिक शिक्षण देणारी संस्था.",
+                "c7-tag": "तांत्रिक पदविका", "c7-desc": "१० वी नंतर तांत्रिक पदविका (डप्लोमा) अभ्यासक्रमांसाठी नामांकित शासकीय संस्था.",
+                "c8-tag": "कला व वाणिज्य पदवी", "c8-desc": "कला, वाणिज्य आणि व्यवस्थापन पदवी अभ्यासक्रम देणारी विश्वासू संस्था.",
+                "c9-tag": "आयुर्वेदिक वैद्यकीय", "c9-desc": "आयुर्वेदिक वैद्यकीय विज्ञानातील शिक्षण देणारी प्रमुख शासकीय संस्था.",
+                "visit-web": "🌐 अधिकृत संकेतस्थळ भेट द्या →",
+                "gal-sub": "दृश्य पर्यटन", "gal-title": "इमेज गॅलरी", "gal-desc": "नांदेडच्या सौंदर्याचा आणि वारशाचा एक कॅप्चर केलेला लूक. (झूम करण्यासाठी क्लिक करा)",
+                "cul-sub": "स्थानिक जीवनशैली", "cul-title": "संस्कृती, सण आणि स्थानिक अन्न", "cul-desc": "नांदेडच्या अस्सल परंपरा आणि चवदार पदार्थांमध्ये मग्न व्हा.",
+                "cf1-title": "🎭 संस्कृती आणि सण", "cf1-desc": "नांदेडमध्ये मराठा आणि शीख परंपरांचा सुंदर संगम दिसून येतो. होला मोहल्ला, दिवाळी, गणेश चतुर्थी हे सण उत्साहात साजरे होतात.",
+                "cf2-title": "🍛 स्थानिक अन्न आणि खाद्यसंस्कृती", "cf2-desc": "पुरणपोळी, झुंभा भाकरी यांसारखे महाराष्ट्रीयन पदार्थ आणि हुजूर साहिब येथील लंगर प्रसाद.",
+                "tr-sub": "तुमच्या सहलीचे नियोजन करा", "tr-title": "प्रवास मार्गदर्शक आणि नकाशा", "tr-desc": "आवश्यक टिप्स, प्रवास पर्याय आणि नांदेडचे अचूक भौगोलिक स्थान.",
+                "tg-title": "🧭 प्रवास मार्गदर्शक टिप्स",
+                "tg1": "भेट देण्यासाठी सर्वोत्तम वेळ: ऑक्टोबर ते मार्च (आल्हाददायक हवामान).",
+                "tg2": "हवाई मार्गाने: श्री गुरु गोबिंद सिंहजी विमानतळ (NDC).",
+                "tg3": "रेल्वे मार्गाने: नांदेड रेल्वे स्टेशन (NED) मुंबई, हैदराबादला जोडलेले आहे.",
+                "tg4": "स्थानिक वाहतूक: ऑटो-रिक्षा आणि बस सहज उपलब्ध आहेत.",
+                "map-title": "📍 गूगल नकाशा स्थान", "map-desc": "नकाशावर नांदेड, महाराष्ट्र सहज शोधा:",
+                "con-sub": "संपर्कात रहा", "con-title": "संपर्क फॉर्म", "con-desc": "प्रश्न किंवा अभिप्राय आहे का? आम्हाला थेट संदेश पाठवा.",
+                "lbl-name": "तुमचे नाव", "ph-name": "तुमचे पूर्ण नाव प्रविष्ट करा",
+                "lbl-email": "ईमेल पत्ता", "ph-email": "तुमचा ईमेल प्रविष्ट करा",
+                "lbl-msg": "संदेश", "ph-msg": "येथे तुमचा संदेश टाईप करा...",
+                "btn-send": "संदेश पाठवा",
+                "dev-sub": "निर्माता प्रोफाइल", "dev-title": "विकसक", "dev-desc": "शैक्षणिक मूल्यमापनासाठी समर्पणाने तयार केलेला प्रकल्प.",
+                "dev-badge": "प्रमुख विकसक आणि डिझायनर", "dev-course-sub": "बीसीए अंतिम वर्षाचा विद्यार्थी",
+                "d1-label": "पदवी अभ्यासक्रम:", "d1-val": "बॅचलर ऑफ कॉम्प्युटर अप्लिकेशन्स",
+                "d2-label": "प्रकल्प शिर्षक:", "d2-val": "नांदेड पर्यटन आणि शिक्षण पोर्टल",
+                "d3-label": "मुख्य तंत्रज्ञान:", "d4-label": "डिझाइन आर्किटेक्चर:", "d4-val": "रॉयल ब्लॅक आणि गोल्ड थीम",
+                "footer-text": "© २०२६ नांदेड पोर्टल. सारंग सुधाकर गोटे द्वारे विकसित."
+            },
+            hi: {
+                "nav-home": "होम", "nav-about": "परिचय", "nav-history": "इतिहास", "nav-talukas": "तालुकें",
+                "nav-religious": "धार्मिक", "nav-famous": "प्रसिद्ध", "nav-colleges": "कॉलेज", "nav-gallery": "गैलरी",
+                "nav-guide": "गाइड", "nav-contact": "संपर्क", "nav-dev": "डेवलपर",
+                "hero-welcome": "स्वागत है", "hero-tagline": "इतिहास, संस्कृति और अध्यात्म की भूमि",
+                "weather-label": "🌤️ नांदेड़:", "weather-val": "32°C, धूप और सुहावना",
+                "hero-sub": "सभी 16 तालुकों, आध्यात्मिक विरासत, प्राचीन ऐतिहासिक पृष्ठभूमि, शीर्ष शिक्षण संस्थानों और नांदेड़ के पर्यटक गाइड का पता लगाएं।",
+                "btn-talukas": "16 तालुकें देखें", "btn-dev": "डेवलपर प्रोफाइल",
+                "why-sub": "उत्कृष्टता का अनुभव करें", "why-title": "नांदेड़ क्यों आएं?",
+                "why-desc": "जानें कि क्या नांदेड़ को यात्रियों, तीर्थयात्रियों और छात्रों के लिए एक अनूठा आकर्षक गंतव्य बनाता है।",
+                "why1-title": "आध्यात्मिक आश्रय", "why1-desc": "तख्त सचखंड श्री हजूर साहिब का घर, जो दुनिया भर के लाखों भक्तों को आकर्षित करता है।",
+                "why2-title": "16 विविध तालुकें", "why2-desc": "सहस्रकुंड झरनों से लेकर प्राचीन किलों और सभी क्षेत्रों के पवित्र स्थलों तक।",
+                "why3-title": "शिक्षा का केंद्र", "why3-desc": "विष्णुपुरी में SGGSIET और SRTM यूनिवर्सिटी जैसे प्रमुख संस्थानों के लिए प्रसिद्ध।",
+                "about-sub": "शहर की खोज करें", "about-title": "16 तालुकों में फैला एक ऐतिहासिक जिला",
+                "about-desc": "नांदेड़ जिले में 16 गतिशील तालुक हैं, जिनमें से प्रत्येक में अद्वितीय ऐतिहासिक स्थल और सांस्कृतिक महत्व है।",
+                "feat-heritage": "🏛️ 16 अनूठे तालुक", "feat-colleges": "🎓 शीर्ष कॉलेज",
+                "glance1": "कुल तालुक", "glance2": "वर्षों का इतिहास", "glance3": "शीर्ष संस्थान", "glance4": "विरासत स्थल",
+                "hist-sub": "कालानुक्रमिक विकास", "hist-title": "इतिहास टाइमलाइन",
+                "hist-desc": "प्राचीन, मध्ययुगीन और आधुनिक युग में नांदेड़ के गौरवशाली मील के पत्थर का पता लगाना।",
+                "h1-title": "प्राचीन काल और पौराणिक जड़ें", "h1-desc": "नांदेड़ का उल्लेख प्राचीन हिंदू ग्रंथों और पुराणों में मिलता है, जिस पर नंद साम्राज्य, मौर्य और सातवाहन राजवंशों का शासन था।",
+                "h2-title": "मध्ययुगीन शासन और यादव", "h2-desc": "देवगिरी के यादवों के शासनकाल में यह क्षेत्र फला-फूला, जिसके बाद दिल्ली सल्तनत और बहमनी सल्तनत का शासन आया।",
+                "h3-title": "मुगल काल और श्री गुरु गोबिंद सिंह जी", "h3-desc": "1708 में, 10वें सिख गुरु, गुरु गोबिंद सिंह जी नांदेड़ आए और इसे अपना स्थायी निवास बनाया, जहाँ तख्त सचखंड श्री हजूर साहिब की स्थापना की।",
+                "h4-title": "निजाम शासन और मुक्ति", "h4-desc": "1948 में ऑपरेशन पोलो के दौरान मुक्त होने और भारत में एकीकृत होने तक नांदेड़ निज़ाम के हैदराबाद राज्य का हिस्सा रहा।",
+                "tal-sub": "जिला विवरण", "tal-title": "सभी 16 तालुक और घूमने की जगहें",
+                "tal-desc": "नांदेड़ जिले के हर एक तालुक और उनके विशेष आकर्षणों की खोज करें।",
+                "rel-sub": "आध्यात्मिक जड़ें", "rel-title": "धार्मिक महत्व", "rel-desc": "गहरी शांति, आस्था और दिव्यता प्रदान करने वाले पवित्र स्थान।",
+                "r1-title": "तख्त सचखंड श्री हजूर साहिब", "r1-desc": "सिख धर्म में पांच पवित्र तख्तों में से एक, गुरु गोबिंद सिंह जी के पवित्र प्रस्थान का स्मरण कराता है।",
+                "r2-title": "कालेश्वर मंदिर", "r2-desc": "पवित्र गोदावरी नदी के तट पर शांति से स्थित भगवान शिव को समर्पित एक प्राचीन ऐतिहासिक मंदिर।",
+                "fam-sub": "अवश्य देखने योग्य स्थान", "fam-title": "प्रसिद्ध स्थान", "fam-desc": "अन्वेषण के योग्य वास्तुशिल्प और सुंदर स्थल।",
+                "f1-title": "नांदेड़ किला", "f1-desc": "तीन तरफ से गोदावरी नदी के पानी से घिरा हुआ, जो ऐतिहासिक सुंदरता और आकर्षण प्रदान करता है।",
+                "f2-title": "गोदावरी नदी घाट", "f2-desc": "शाम की आरती की मेजबानी करने वाले और आगंतुकों के लिए शांत वातावरण प्रदान करने वाले नदी के तट।",
+                "col-sub": "शैक्षणिक उत्कृष्टता", "col-title": "नांदेड़ के शीर्ष कॉलेज",
+                "col-desc": "विश्व स्तर की तकनीकी, चिकित्सा, कला, विज्ञान और उच्च शिक्षा प्रदान करने वाले प्रमुख संस्थान।",
+                "search-placeholder": "🔍 कॉलेज का नाम या कोर्स खोजें...",
+                "c1-tag": "इंजीनियरिंग और तकनीक", "c1-desc": "श्री गुरु गोबिंद सिंहजी इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी नांदेड़ का प्रमुख तकनीकी संस्थान है।",
+                "c2-tag": "विश्वविद्यालय परिसर", "c2-desc": "स्वामी रामानंद तीर्थ मराठवाडा विश्वविद्यालय स्नातकोत्तर शिक्षा और अनुसंधान कार्यक्रम प्रदान करता है।",
+                "c3-tag": "चिकित्सा और स्वास्थ्य सेवा", "c3-desc": "शीर्ष स्तरीय एमबीबीएस और स्नातकोत्तर चिकित्सा प्रशिक्षण प्रदान करने वाला सरकारी मेडिकल कॉलेज।",
+                "c4-tag": "कला, विज्ञान और वाणिज्य", "c4-desc": "विभिन्न स्नातक और स्नातकोत्तर पाठ्यक्रम प्रदान करने वाला इस क्षेत्र का सबसे पुराना और बड़ा कॉलेज।",
+                "c5-tag": "विज्ञान और अनुसंधान", "c5-desc": "उन्नत विज्ञान पाठ्यक्रमों और वैज्ञानिक अनुसंधान के लिए समर्पित एक प्रतिष्ठित संस्थान।",
+                "c6-tag": "इंजीनियरिंग और प्रबंधन", "c6-desc": "आधुनिक बुनियादी ढांचे के साथ गुणवत्तापूर्ण तकनीकी और व्यावसायिक शिक्षा प्रदान करने वाला परिसर।",
+                "c7-tag": "तकनीकी डिप्लोमा", "c7-desc": "वजीराबाद में स्थित, यह 10वीं कक्षा के बाद तकनीकी डिप्लोमा पाठ्यक्रमों के लिए शीर्ष सरकारी संस्थान है।",
+                "c8-tag": "कला और वाणिज्य डिग्री", "c8-desc": "कला, वाणिज्य और प्रबंधन अध्ययन में मजबूत स्नातक कार्यक्रम प्रदान करने वाला एक विश्वसनीय संस्थान।",
+                "c9-tag": "आयुर्वेदिक चिकित्सा", "c9-desc": "आयुर्वेदिक चिकित्सा विज्ञान में विशेष शिक्षा और नैदानिक प्रशिक्षण प्रदान करने वाला सरकारी संस्थान।",
+                "visit-web": "🌐 आधिकारिक वेबसाइट देखें →",
+                "gal-sub": "दृश्य यात्रा", "gal-title": "इमेज गैलरी", "gal-desc": "नांदेड़ की सुंदरता, दिव्यता और विरासत की एक झलक। (ज़ूम करने के लिए क्लिक करें)",
+                "cul-sub": "स्थानीय जीवन शैली", "cul-title": "संस्कृति, त्यौहार और स्थानीय भोजन", "cul-desc": "नांदेड़ की जीवंत परंपराओं और स्वादिष्ट स्वादों में डूब जाएं।",
+                "cf1-title": "🎭 संस्कृति और त्यौहार", "cf1-desc": "नांदेड़ में मराठा और सिख परंपराओं का सुंदर संगम दिखाई देता है। होला मोहल्ला, दिवाली, गणेश चतुर्थी जैसे त्यौहार धूमधाम से मनाए जाते हैं।",
+                "cf2-title": "🍛 स्थानीय भोजन और व्यंजन", "cf2-desc": "पुरन पोली, झुंका भाकरी जैसे पारंपरिक महाराष्ट्रीयन व्यंजन और हजूर साहिब का लंगर प्रसाद।",
+                "tr-sub": "अपनी यात्रा की योजना बनाएं", "tr-title": "यात्रा गाइड और नक्शा", "tr-desc": "आवश्यक टिप्स, परिवहन विकल्प और नांदेड़ का सटीक भौगोलिक स्थान।",
+                "tg-title": "🧭 यात्रा गाइड टिप्स",
+                "tg1": "घूमने का सबसे अच्छा समय: अक्टूबर से मार्च (सुहावना मौसम)।",
+                "tg2": "हवाई मार्ग से: श्री गुरु गोबिंद सिंहजी हवाई अड्डा (NDC) प्रमुख ह hubs से जोड़ता है।",
+                "tg3": "रेल मार्ग से: नांदेड़ रेलवे स्टेशन (NED) मुंबई, हैदराबाद और दिल्ली से जुड़ा है।",
+                "tg4": "स्थानीय परिवहन: ऑटो-रिक्शा और स्थानीय बसें आसानी से उपलब्ध हैं।",
+                "map-title": "📍 गूगल मैप लोकेशन", "map-desc": "मानचित्र पर नांदेड़, महाराष्ट्र आसानी से खोजें:",
+                "con-sub": "संपर्क में रहें", "con-title": "संपर्क फ़ॉर्म", "con-desc": "प्रश्न या प्रतिक्रिया है? हमें सीधे संदेश भेजें।",
+                "lbl-name": "आपका नाम", "ph-name": "अपना पूरा नाम दर्ज करें",
+                "lbl-email": "ईमेल पता", "ph-email": "अपना ईमेल दर्ज करें",
+                "lbl-msg": "संदेश", "ph-msg": "यहाँ अपना संदेश टाइप करें...",
+                "btn-send": "संदेश भेजें",
+                "dev-sub": "निर्माता प्रोफाइल", "dev-title": "डेलवलपर", "dev-desc": "शैक्षणिक मूल्यांकन के लिए समर्पण के साथ बनाया गया प्रोजेक्ट।",
+                "dev-badge": "प्रमुख डेवलपर और डिजाइनर", "dev-course-sub": "बीसीए अंतिम वर्ष के छात्र",
+                "d1-label": "डिग्री पाठ्यक्रम:", "d1-val": "बैचलर ऑफ कंप्यूटर एप्लीकेशन",
+                "d2-label": "प्रोजेक्ट शीर्षक:", "d2-val": "नांदेड़ पर्यटन और शिक्षा पोर्टल",
+                "d3-label": "कोर टेक्नोलॉजी:", "d4-label": "डिज़ाइन आर्किटेक्चर:", "d4-val": "रॉयल ब्लैक एंड गोल्ड थीम",
+                "footer-text": "© 2026 नांदेड़ पोर्टल। सारंग सुधाकर गोटे द्वारा विकसित।"
+            }
+        };
+
+        // Preloader Handler
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // Navbar Active Class Switcher
+        const navLinks = document.querySelectorAll('.nav-menu ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Theme Toggle Switcher
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        themeToggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+        });
+
+        // Language Translator Function
+        const langSelector = document.getElementById('langSelector');
+        langSelector.addEventListener('change', function(e) {
+            const lang = e.target.value;
+            const dict = translations[lang];
+
+            // Translate elements with data-key
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            // Translate placeholder attributes
+            document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+                const pKey = el.getAttribute('data-key-placeholder');
+                if (dict[pKey]) {
+                    el.placeholder = dict[pKey];
+                }
+            });
+        });
+
+        // Quick College Search Filter
+        const searchInput = document.getElementById('collegeSearchInput');
+        const collegeCards = document.querySelectorAll('.college-card');
+
+        searchInput.addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            collegeCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                const tag = card.querySelector('.college-tag').textContent.toLowerCase();
+                
+                if (title.includes(term) || desc.includes(term) || tag.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Interactive Image Lightbox / Modal
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                lightboxImg.src = this.src;
+                lightboxModal.classList.add('active');
+            });
+        });
+
+        lightboxClose.addEventListener('click', function() {
+            lightboxModal.classList.remove('active');
+        });
+
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal) {
+                lightboxModal.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
